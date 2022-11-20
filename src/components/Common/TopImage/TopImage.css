@@ -1,0 +1,9 @@
+.topImage {
+  display: flex;
+  height: 50%;
+}
+.topImage img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}

@@ -1,0 +1,12 @@
+.header {
+  background-color: #2a2721;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fdfbeb;
+}
+
+svg polygon {
+  fill: #fdfbeb;
+}

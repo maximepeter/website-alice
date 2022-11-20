@@ -1,0 +1,10 @@
+.contactButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 162px;
+  height: 51px;
+  background: #393730;
+  border-radius: 20px;
+  margin: 10px;
+}

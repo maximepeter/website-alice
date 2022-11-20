@@ -1,0 +1,7 @@
+.svg-container {
+  width: 5%;
+  padding: 5%;
+  transform: rotate(180deg);
+  display: flex;
+  align-items: center;
+}
