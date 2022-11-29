@@ -1,0 +1,19 @@
+.article-content {
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+}
+.article-head-container {
+  display: flex;
+  align-items: center;
+}
+
+.article-map {
+  height: 50 vw;
+  padding: 1vw;
+}
+
+.article-table-of-contents {
+  font-size: 3vw;
+  padding: 2vw;
+}

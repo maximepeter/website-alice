@@ -1,9 +1,24 @@
 .topImage {
-  display: flex;
+  position: relative;
   height: 50%;
 }
 .topImage img {
   width: 100%;
   height: auto;
   max-height: 100%;
+}
+
+.top-image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4vw;
+  color: #fdfbeb;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a27214c;
 }

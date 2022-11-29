@@ -1,3 +1,14 @@
+export function isClickedOnMenu(event) {
+  var clickedOnMenu =
+    event.target.matches(".buttonMenu") ||
+    event.target.matches(".menuLabel") ||
+    event.target.matches(".dropDownMenu") ||
+    event.target.matches(".dropDownItem") ||
+    event.target.matches(".svg-container") ||
+    event.target.matches(".svg-triangle");
+  return clickedOnMenu;
+}
+
 export function clearAllDropdownsState() {
   var dropdowns = document.getElementsByClassName("dropDownMenu");
   var j;

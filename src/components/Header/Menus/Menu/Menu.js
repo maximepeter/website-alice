@@ -2,19 +2,22 @@ import "./Menu.css";
 import { useEffect } from "react";
 import ButtonMenu from "./ButtonMenu/ButtonMenu";
 import DropDownMenu from "./DropDownMenu/DropDownMenu";
-import { clearAllDropdownsState, clearAllMenusState } from "../../../../utils";
+import {
+  clearAllDropdownsState,
+  clearAllMenusState,
+  isClickedOnMenu,
+} from "../../../../utils";
 
 function Menu(props) {
   let menuType = props.menuInfos.categoryType;
   let menuId = "menu-" + menuType;
   useEffect(() => {
     const menuClick = (event, menuType) => {
-      var clickedOnMenu =
-        event.target.matches(".buttonMenu") ||
-        event.target.matches(".menuLabel") ||
-        event.target.matches(".dropDownMenu") ||
-        event.target.matches(".dropDownItem");
+      console.log(event.target);
+      console.log(event.target.matches(".svg-triangle"));
+      var clickedOnMenu = isClickedOnMenu(event);
       if (clickedOnMenu) {
+        console.log("In the matrix !");
         clearAllMenusState();
         document.getElementById(menuId).classList.add("menu-selected");
         clearAllDropdownsState();

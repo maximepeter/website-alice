@@ -6,3 +6,7 @@
   font-weight: bolder;
   font-size: x-large;
 }
+
+.dropDownItem:hover {
+  color: rgb(193, 173, 173);
+}

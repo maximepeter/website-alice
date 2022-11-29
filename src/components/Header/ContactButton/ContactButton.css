@@ -2,9 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 162px;
-  height: 51px;
+  width: 10%;
+  height: 40%;
   background: #393730;
   border-radius: 20px;
-  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.contactButton:hover {
+  background-color: rgba(167, 5, 5);
 }

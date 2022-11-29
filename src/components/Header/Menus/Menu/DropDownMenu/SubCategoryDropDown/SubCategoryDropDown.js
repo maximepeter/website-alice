@@ -1,4 +1,5 @@
 import "./SubCategoryDropDown.css";
+import { Link } from "react-router-dom";
 
 function SubCategoryDropdown(props) {
   return (
@@ -7,7 +8,7 @@ function SubCategoryDropdown(props) {
       <div className="item-list">
         {props.items.map((item) => (
           <div className="dropDownItem" key={item.itemTitle}>
-            {item.itemTitle}
+            <Link to={"/article" + item.itemTitle}>{item.itemTitle}</Link>
           </div>
         ))}
       </div>

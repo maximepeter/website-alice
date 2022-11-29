@@ -5,7 +5,7 @@ import HomeContent from "./HomeContent/HomeContent";
 function HomePage() {
   return (
     <div className="homePage">
-      <TopImage imagePath="/topHomePhoto.jpg" />
+      <TopImage imagePath="/topHomePhoto.jpg" imageText="" />
       <HomeContent />
     </div>
   );
