@@ -1,3 +1,5 @@
+import ArticleCell from "./components/Article/ArticleContent/ArticleCell/ArticleCell";
+
 export function isClickedOnMenu(event) {
   var clickedOnMenu =
     event.target.matches(".buttonMenu") ||
@@ -28,4 +30,36 @@ export function clearAllMenusState() {
 
     currentMenu.classList.remove("menu-selected");
   }
+}
+
+export function calculateImageSide(cellIndex) {
+  if (cellIndex % 2 === 0) {
+    return "right";
+  } else {
+    return "left";
+  }
+}
+
+export function createArticleCell(
+  articleId,
+  cellIndex,
+  cellTitle,
+  cellSubtitle,
+  imageSide
+) {
+  return (
+    <ArticleCell
+      image={
+        "articlesContent/" + articleId + "/cell" + cellIndex + "/image.jpg"
+      }
+      textPath={
+        "articlesContent/" + articleId + "/cell" + cellIndex + "/content.txt"
+      }
+      title={cellTitle}
+      subtitle={cellSubtitle}
+      cellId={cellIndex}
+      imagePosition={imageSide}
+      key={cellIndex}
+    />
+  );
 }

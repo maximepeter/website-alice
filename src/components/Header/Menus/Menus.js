@@ -1,14 +1,23 @@
 import "./Menus.css";
 import Menu from "./Menu/Menu";
-import { menusInfos } from "../../../temp/tempCategoriesData";
+import { useState, useEffect } from "react";
+
+const renderedMenus = [];
+
 function Menus() {
-  return (
-    <div className="menus">
-      <Menu menuInfos={menusInfos[0]} />
-      <Menu menuInfos={menusInfos[1]} />
-      <Menu menuInfos={menusInfos[2]} />
-    </div>
-  );
+  const [menus, setMenus] = useState(<div>Loading</div>);
+  useEffect(() => {
+    const fetchMenuInfos = async () => {
+      const response = await fetch("/menuInfos.json");
+      const menuInfos = await response.json();
+      menuInfos.map((menuInfos, idx) =>
+        renderedMenus.push(<Menu key={idx} menuInfos={menuInfos} />)
+      );
+      setMenus(renderedMenus);
+    };
+    fetchMenuInfos();
+  }, []);
+  return <div className="menus">{menus}</div>;
 }
 
 export default Menus;

@@ -1,9 +1,12 @@
 import "./ArticleContent.css";
 import ArticleCell from "./ArticleCell/ArticleCell";
 import { useEffect, useState } from "react";
+import { createArticleCell, calculateImageSide } from "../../../utils";
+
+const renderedTableOfContent = [];
+const renderedArticles = [];
 
 function ArticleContent(props) {
-  // TO DO : Comprendre l'infinite loop
   const [tableOfContent, setTableOfContent] = useState(<li>Loading</li>);
   const [articles, setArticles] = useState(
     <ArticleCell
@@ -14,8 +17,6 @@ function ArticleContent(props) {
       imagePosition="left"
     />
   );
-  let renderedTableOfContent = [];
-  let renderedArticles = [];
 
   useEffect(() => {
     const fetchMetadata = async () => {
@@ -24,38 +25,21 @@ function ArticleContent(props) {
       );
       const metadataJson = await response.json();
       const cells = metadataJson.cells;
-      const nbCells = cells.length;
       cells.map((cell, idx) => {
         let cellIndex = idx + 1;
         let imageSide;
-        renderedTableOfContent.push(<li key={idx}>{cell}</li>);
-        if (cellIndex % 2 === 0) {
-          imageSide = "right";
-        } else {
-          imageSide = "left";
-        }
+        renderedTableOfContent.push(<li key={idx}>{cell.title}</li>);
+        imageSide = calculateImageSide(cellIndex);
         renderedArticles.push(
-          <ArticleCell
-            image={
-              "articlesContent/" +
-              props.articleId +
-              "/cell" +
-              cellIndex +
-              "/image.jpg"
-            }
-            textPath={
-              "articlesContent/" +
-              props.articleId +
-              "/cell" +
-              cellIndex +
-              "/content.txt"
-            }
-            title={cell}
-            cellId={idx}
-            imagePosition={imageSide}
-            key={idx}
-          />
+          createArticleCell(
+            props.articleId,
+            cellIndex,
+            cell.title,
+            cell.subtitle,
+            imageSide
+          )
         );
+        return 0;
       });
       setTableOfContent(renderedTableOfContent);
       setArticles(renderedArticles);

@@ -15,15 +15,14 @@ function Menu(props) {
     const menuClick = (event, menuType) => {
       var clickedOnMenu = isClickedOnMenu(event);
       if (clickedOnMenu) {
-        console.log("In the matrix !");
         clearAllMenusState();
         document.getElementById(menuId).classList.add("menu-selected");
         clearAllDropdownsState();
-        let dropDownId = "myDropdown" + menuType;
-        document.getElementById(dropDownId).classList.toggle("show");
+        document
+          .getElementById("myDropdown" + menuType)
+          .classList.toggle("show");
       }
     };
-    // EventListener creation
     document
       .getElementById(menuId)
       .addEventListener("click", (event) => menuClick(event, menuType));

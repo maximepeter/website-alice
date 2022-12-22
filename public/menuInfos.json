@@ -1,0 +1,83 @@
+[
+  {
+    "categoryType": "Voyages longs",
+    "subCategories": [
+      {
+        "subCategoryType": "Tourisme",
+        "items": [
+          {
+            "itemTitle": "Guyane"
+          },
+          {
+            "itemTitle": "Argentine"
+          }
+        ]
+      },
+      {
+        "subCategoryType": "Trek",
+        "items": [
+          {
+            "itemTitle": "GR 20 - Corse"
+          },
+          {
+            "itemTitle": "GR 58 - Queyras"
+          },
+          {
+            "itemTitle": "GR 340 - Bretagne"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryType": "Voyages courts",
+    "subCategories": [
+      {
+        "subCategoryType": "Rando Mercantour",
+        "items": [
+          {
+            "itemTitle": "Refuge des Merveilles"
+          },
+          {
+            "itemTitle": "Refuge de Nice"
+          },
+          {
+            "itemTitle": "Refuge de la Madone de Fenestre"
+          },
+          {
+            "itemTitle": "Refuge de la Cougourde"
+          },
+          {
+            "itemTitle": "Refuge de Rabuons"
+          },
+          {
+            "itemTitle": "Refuge de Vens"
+          }
+        ]
+      },
+      {
+        "subCategoryType": "Rando autre",
+        "items": []
+      }
+    ]
+  },
+  {
+    "categoryType": "Préparation",
+    "subCategories": [
+      {
+        "subCategoryType": "",
+        "items": [
+          {
+            "itemTitle": "Matériel bivouac"
+          },
+          {
+            "itemTitle": "Matériel randonnée"
+          },
+          {
+            "itemTitle": "Santé"
+          }
+        ]
+      }
+    ]
+  }
+]
