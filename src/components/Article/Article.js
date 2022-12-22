@@ -7,7 +7,12 @@ function Article() {
   const articleId = useParams().articleId;
   return (
     <div className="article">
-      <TopImage imagePath={"/top" + articleId + ".jpg"} imageText={articleId} />
+      <TopImage
+        imagePath={
+          "/articlesContent/" + articleId + "/top" + articleId + ".jpg"
+        }
+        imageText={articleId}
+      />
       <ArticleContent articleId={articleId} />
     </div>
   );

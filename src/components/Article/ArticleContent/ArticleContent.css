@@ -1,19 +1,29 @@
 .article-content {
   padding-left: 1vw;
   padding-right: 1vw;
-  padding-top: 1vh;
+  padding-top: 2vh;
 }
 .article-head-container {
   display: flex;
-  align-items: center;
 }
 
 .article-map {
-  height: 50 vw;
-  padding: 1vw;
+  width: 50vw;
+}
+
+.article-map img {
+  border-radius: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .article-table-of-contents {
-  font-size: 3vw;
-  padding: 2vw;
+  font-size: 1.5vw;
+  width: 50vw;
+  text-align: left;
+}
+
+.head-summary {
+  height: 40vh;
+  border: solid black;
+  border-radius: 5px;
 }

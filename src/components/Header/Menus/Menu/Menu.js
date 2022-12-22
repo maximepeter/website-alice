@@ -13,8 +13,6 @@ function Menu(props) {
   let menuId = "menu-" + menuType;
   useEffect(() => {
     const menuClick = (event, menuType) => {
-      console.log(event.target);
-      console.log(event.target.matches(".svg-triangle"));
       var clickedOnMenu = isClickedOnMenu(event);
       if (clickedOnMenu) {
         console.log("In the matrix !");
@@ -39,7 +37,6 @@ function Menu(props) {
   return (
     <div className="menu" id={"menu-" + menuType}>
       <ButtonMenu menuType={menuType} />
-      {/* TO DO : Undertstqnd how to center the dropdown menu */}
       <DropDownMenu categoryInfos={props.menuInfos} />
     </div>
   );

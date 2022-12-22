@@ -1,0 +1,42 @@
+.article-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+.article-cell-picture {
+  display: flex;
+}
+
+.article-cell-picture img {
+  max-width: 25vw;
+  height: 100%;
+  border-radius: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.article-cell-content {
+  width: 70vw;
+  text-align: justify;
+}
+
+.article-cell-text-title {
+  font-size: 2.5vw;
+}
+
+.article-cell-content {
+  font-size: 1.5vw;
+  padding-left: 0.5vw;
+  padding-right: 0vw;
+}
+
+.picture-right {
+  flex-direction: row-reverse;
+}
+
+.picture-right .article-cell-content {
+  padding-left: 0vw;
+  padding-right: 0.5vw;
+}
