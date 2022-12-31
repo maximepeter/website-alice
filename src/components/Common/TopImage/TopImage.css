@@ -4,7 +4,6 @@
 }
 .topImage img {
   width: 100%;
-  height: auto;
   max-height: 100%;
 }
 
@@ -21,4 +20,14 @@
   justify-content: center;
   align-items: center;
   background-color: #2a27214c;
+}
+
+@media screen and (max-width: 600px) {
+  .topImage {
+    height: 20vh;
+  }
+  .topImage img {
+    height: 100%;
+    max-width: 100%;
+  }
 }
