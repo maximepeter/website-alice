@@ -63,3 +63,28 @@ export function createArticleCell(
     />
   );
 }
+
+export async function transformMetadata(
+  metadataJson,
+  articleId,
+  renderedTableOfContent,
+  renderedArticles
+) {
+  const cells = metadataJson.cells;
+  cells.map((cell, idx) => {
+    let cellIndex = idx + 1;
+    let imageSide;
+    renderedTableOfContent.push(<li key={idx}>{cell.title}</li>);
+    imageSide = calculateImageSide(cellIndex);
+    renderedArticles.push(
+      createArticleCell(
+        articleId,
+        cellIndex,
+        cell.title,
+        cell.subtitle,
+        imageSide
+      )
+    );
+    return 0;
+  });
+}

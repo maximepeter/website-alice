@@ -1,10 +1,12 @@
 import "./ArticleContent.css";
 import ArticleCell from "./ArticleCell/ArticleCell";
 import { useEffect, useState } from "react";
-import { createArticleCell, calculateImageSide } from "../../../utils";
+import { transformMetadata } from "../../../utils";
 
 const renderedTableOfContent = [];
 const renderedArticles = [];
+
+// TO DO : Here is the code for a image slider. I believe the best way to do is to have a hidden carousel on this component and avtive it with the correct slider id. After It will be needed to find the correct array for this Id and display th images :)
 
 function ArticleContent(props) {
   const [tableOfContent, setTableOfContent] = useState(<li>Loading</li>);
@@ -23,26 +25,22 @@ function ArticleContent(props) {
       const response = await fetch(
         "/articlesContent/" + props.articleId + "/metadata.json"
       );
-      const metadataJson = await response.json();
-      const cells = metadataJson.cells;
-      cells.map((cell, idx) => {
-        let cellIndex = idx + 1;
-        let imageSide;
-        renderedTableOfContent.push(<li key={idx}>{cell.title}</li>);
-        imageSide = calculateImageSide(cellIndex);
-        renderedArticles.push(
-          createArticleCell(
-            props.articleId,
-            cellIndex,
-            cell.title,
-            cell.subtitle,
-            imageSide
-          )
+
+      try {
+        const metadataJson = await response.json();
+        transformMetadata(
+          metadataJson,
+          props.articleId,
+          renderedTableOfContent,
+          renderedArticles
         );
-        return 0;
-      });
-      setTableOfContent(renderedTableOfContent);
-      setArticles(renderedArticles);
+        setTableOfContent(renderedTableOfContent);
+        setArticles(renderedArticles);
+      } catch (e) {
+        console.log("Error when fetching the metadata !");
+        setTableOfContent([]);
+        setArticles([]);
+      }
     };
     fetchMetadata();
   }, [props.articleId]);

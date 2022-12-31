@@ -1,7 +1,8 @@
 body {
   margin: 0;
-  font-family: "JaldiRegular", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "JaldiRegular", "JaldiBold", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fffef6;
@@ -24,4 +25,14 @@ code {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+@font-face {
+  font-family: "JaldiRegular";
+  src: local("JaldiRegular"), url(fonts/Jaldi-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "JaldiBold";
+  src: local("JaldiBold"), url(fonts/Jaldi-Bold.ttf) format("truetype");
 }
