@@ -4,7 +4,7 @@
 }
 .topImage img {
   width: 100%;
-  max-height: 100%;
+  height: 100%;
 }
 
 .top-image-text {
@@ -29,5 +29,8 @@
   .topImage img {
     height: 100%;
     max-width: 100%;
+  }
+  .top-image-text {
+    font-size: 7vw;
   }
 }
