@@ -3,9 +3,6 @@ import ArticleCell from "./ArticleCell/ArticleCell";
 import { useEffect, useState } from "react";
 import { transformMetadata } from "../../../utils";
 
-const renderedTableOfContent = [];
-const renderedArticles = [];
-
 // TO DO : Here is the code for a image slider. I believe the best way to do is to have a hidden carousel on this component and avtive it with the correct slider id. After It will be needed to find the correct array for this Id and display th images :)
 
 function ArticleContent(props) {
@@ -21,6 +18,8 @@ function ArticleContent(props) {
   );
 
   useEffect(() => {
+    const renderedTableOfContent = [];
+    const renderedArticles = [];
     const fetchMetadata = async () => {
       const response = await fetch(
         "/articlesContent/" + props.articleId + "/metadata.json"
