@@ -9,6 +9,7 @@ import {
   clearAllMenusState,
   isClickedOnMenu,
 } from "./utils";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   // Close the dropdown menu if the user clicks outside of it
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/article:articleId" element={<Article />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </div>

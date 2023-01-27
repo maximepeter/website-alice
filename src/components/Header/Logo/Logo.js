@@ -1,10 +1,11 @@
 import "./Logo.css";
+import { Link } from "react-router-dom";
 
 function Logo() {
   return (
-    <div className="logo">
+    <Link className="logo" to="/">
       <img alt="Website's logo" src="/logo.png" />
-    </div>
+    </Link>
   );
 }
 

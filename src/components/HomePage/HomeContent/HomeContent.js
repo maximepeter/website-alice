@@ -6,9 +6,8 @@ function HomeContent() {
       <div className="homeText">
         <p>
           Je m’appelle Alice, j’habite actuellement dans les Alpes Maritimes et
-          j’ai la petite trentaine. J’ai attrapé le virus du voyage et de la
-          randonnée il y a quelques années en Argentine, et je n’ai jamais
-          arrêté depuis.
+          j’ai la petite trentaine. J’ai découvert la randonnée il y a quelques
+          années en Argentine, et je n’ai jamais arrêté depuis.
         </p>
         <p>
           Que ce soit pour des voyages, des sorties à la journée ou bien des
