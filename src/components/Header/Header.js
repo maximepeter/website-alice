@@ -1,14 +1,15 @@
 import "./Header.css";
 import Logo from "./Logo/Logo";
 import Menus from "./Menus/Menus";
-import ContactButton from "./ContactButton/ContactButton";
+import HeaderButton from "./HeaderButton/HeaderButton";
 
 function Header() {
   return (
     <div className="header">
       <Logo />
+      <HeaderButton text="Acceuil" url="/" />
       <Menus />
-      <ContactButton />
+      <HeaderButton text="Contact" url="/contact" />
     </div>
   );
 }
