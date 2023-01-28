@@ -7,8 +7,10 @@
 }
 
 .article-cell-picture {
+  position: relative;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .article-cell-picture img {
@@ -16,6 +18,30 @@
   height: 100%;
   border-radius: 5px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.overlayBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.overlayBlock:hover {
+  background: #2a2721a3;
+  opacity: 1;
+}
+
+.overlayText {
+  font-size: 200%;
+  color: #fdfbeb;
 }
 
 .article-cell-content {

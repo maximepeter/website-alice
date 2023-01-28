@@ -1,7 +1,7 @@
 import "./ArticleContent.css";
 import ArticleCell from "./ArticleCell/ArticleCell";
 import { useEffect, useState } from "react";
-import { transformMetadata } from "../../../utils";
+import { appendArticlesAndContent } from "../../../utils";
 
 function ArticleContent(props) {
   const [tableOfContent, setTableOfContent] = useState(<li>Loading</li>);
@@ -16,16 +16,17 @@ function ArticleContent(props) {
   );
 
   useEffect(() => {
+    // Compute the content of the articles
     const renderedTableOfContent = [];
     const renderedArticles = [];
-    const fetchMetadata = async () => {
+    const createContent = async () => {
+      console.log("Fetching ...");
       const response = await fetch(
         "/articlesContent/" + props.articleId + "/metadata.json"
       );
-
       try {
         const metadataJson = await response.json();
-        transformMetadata(
+        appendArticlesAndContent(
           metadataJson,
           props.articleId,
           renderedTableOfContent,
@@ -33,13 +34,17 @@ function ArticleContent(props) {
         );
         setTableOfContent(renderedTableOfContent);
         setArticles(renderedArticles);
+        // addEventListenersForClass("article-cell-picture");
       } catch (e) {
         console.log("Error when fetching the metadata !");
         setTableOfContent([]);
         setArticles([]);
       }
     };
-    fetchMetadata();
+    const contentCreation = createContent();
+    contentCreation.then((r) => {
+      console.log(renderedArticles.length);
+    });
   }, [props.articleId]);
 
   return (

@@ -1,6 +1,7 @@
 import "./ImageSlider.css";
 import React, { useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { hideImageSlider } from "../../../utils";
 
 function ImageSlider() {
   const slides = [
@@ -29,21 +30,31 @@ function ImageSlider() {
   }
 
   return (
-    <div className="slider">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
-      {slides.map((slide, index) => {
-        return (
-          <div
-            className={index === current ? "slide active" : "slide"}
-            key={index}
-          >
-            {index === current && (
-              <img src={slide.image} alt={index} className="image" />
-            )}
-          </div>
-        );
-      })}
+    <div className="slider" id="imageSlider">
+      <div className="slides">
+        <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
+        <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+        {slides.map((slide, index) => {
+          return (
+            <div
+              className={index === current ? "slide active" : "slide"}
+              key={index}
+            >
+              {index === current && (
+                <img
+                  src={slide.image}
+                  alt={index}
+                  className="image"
+                  loading="lazy"
+                />
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <div className="backButton" onClick={() => hideImageSlider()}>
+        Retour
+      </div>
     </div>
   );
 }

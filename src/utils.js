@@ -64,7 +64,7 @@ export function createArticleCell(
   );
 }
 
-export async function transformMetadata(
+export async function appendArticlesAndContent(
   metadataJson,
   articleId,
   renderedTableOfContent,
@@ -87,4 +87,14 @@ export async function transformMetadata(
     );
     return 0;
   });
+}
+
+export function displayImageSlider() {
+  document.getElementById("imageSlider").classList.toggle("show");
+  document.body.classList.toggle("noscroll");
+}
+
+export function hideImageSlider() {
+  document.getElementById("imageSlider").classList.remove("show");
+  document.body.classList.remove("noscroll");
 }
