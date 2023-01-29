@@ -1,23 +1,37 @@
 import "./ArticleCell.css";
+import { useState, useEffect } from "react";
 import { displayImageSlider } from "../../../../utils";
 
 function ArticleCell(props) {
-  fetch(props.textPath)
-    .then((r) => r.text())
-    .then((text) => {
-      document.getElementById("cell-" + props.cellId).textContent = text;
-    });
+  const [imageUrlsandAlts, setImageUrls] = useState([{ image: "" }]);
+
+  useEffect(() => {
+    fetch(props.textPath)
+      .then((r) => r.text())
+      .then((text) => {
+        document.getElementById("cell-" + props.cellId).textContent = text;
+      });
+    function fetchMetadata(url) {
+      const outputJson = fetch(url).then((response) => response.json());
+      return outputJson;
+    }
+    console.log(props.imageMetadataUrl);
+    fetchMetadata(props.imageMetadataUrl).then((r) =>
+      setImageUrls(r["images"])
+    );
+  }, [props.cellId, props.imageMetadataUrl, props.textPath]);
   return (
     <div
       className={"article-cell picture-" + props.imagePosition}
       onClick={() => {
-        displayImageSlider();
+        props.imageSliderSetSlides(imageUrlsandAlts);
+        displayImageSlider(props.imageSliderSetSlides);
       }}
     >
       <div className="article-cell-picture">
         <img
-          src={props.image}
-          alt={props.title + " illustration"}
+          src={imageUrlsandAlts[0]["imageUrl"]}
+          alt={imageUrlsandAlts[0]["imageAlt"]}
           loading="lazy"
         />
         <div className="overlayBlock">

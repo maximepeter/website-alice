@@ -45,12 +45,13 @@ export function createArticleCell(
   cellIndex,
   cellTitle,
   cellSubtitle,
-  imageSide
+  imageSide,
+  imageSliderSetSlides
 ) {
   return (
     <ArticleCell
-      image={
-        "articlesContent/" + articleId + "/cell" + cellIndex + "/image.jpg"
+      imageMetadataUrl={
+        "articlesContent/" + articleId + "/cell" + cellIndex + "/metadata.json"
       }
       textPath={
         "articlesContent/" + articleId + "/cell" + cellIndex + "/content.txt"
@@ -60,6 +61,7 @@ export function createArticleCell(
       cellId={cellIndex}
       imagePosition={imageSide}
       key={cellIndex}
+      imageSliderSetSlides={imageSliderSetSlides}
     />
   );
 }
@@ -68,7 +70,8 @@ export async function appendArticlesAndContent(
   metadataJson,
   articleId,
   renderedTableOfContent,
-  renderedArticles
+  renderedArticles,
+  imageSliderSetSlides
 ) {
   const cells = metadataJson.cells;
   cells.map((cell, idx) => {
@@ -82,12 +85,15 @@ export async function appendArticlesAndContent(
         cellIndex,
         cell.title,
         cell.subtitle,
-        imageSide
+        imageSide,
+        imageSliderSetSlides
       )
     );
     return 0;
   });
 }
+
+export function updateSlides(urls) {}
 
 export function displayImageSlider() {
   document.getElementById("imageSlider").classList.toggle("show");

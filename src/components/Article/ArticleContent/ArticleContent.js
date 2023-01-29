@@ -12,6 +12,7 @@ function ArticleContent(props) {
       title="Test"
       cellId={1}
       imagePosition="left"
+      imageSliderSetSlides={props.imageSliderSetSlides}
     />
   );
 
@@ -20,7 +21,6 @@ function ArticleContent(props) {
     const renderedTableOfContent = [];
     const renderedArticles = [];
     const createContent = async () => {
-      console.log("Fetching ...");
       const response = await fetch(
         "/articlesContent/" + props.articleId + "/metadata.json"
       );
@@ -30,7 +30,8 @@ function ArticleContent(props) {
           metadataJson,
           props.articleId,
           renderedTableOfContent,
-          renderedArticles
+          renderedArticles,
+          props.imageSliderSetSlides
         );
         setTableOfContent(renderedTableOfContent);
         setArticles(renderedArticles);
@@ -42,10 +43,8 @@ function ArticleContent(props) {
       }
     };
     const contentCreation = createContent();
-    contentCreation.then((r) => {
-      console.log(renderedArticles.length);
-    });
-  }, [props.articleId]);
+    contentCreation.then((r) => {});
+  }, [props.articleId, props.imageSliderSetSlides]);
 
   return (
     <div className="article-content">

@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import { useState, useCallback } from "react";
 import TopImage from "../Common/TopImage/TopImage";
 import ArticleContent from "./ArticleContent/ArticleContent";
 import "./Article.css";
@@ -10,6 +11,13 @@ import ImageSlider from "../Common/ImageSlider/ImageSlider";
 
 function Article() {
   const articleId = useParams().articleId;
+  const [slides, setSlides] = useState([{ image: "/logo.png" }]);
+  const imageSliderSetSlides = useCallback(
+    (val) => {
+      setSlides(val);
+    },
+    [setSlides]
+  );
   return (
     <div className="article">
       <TopImage
@@ -18,8 +26,11 @@ function Article() {
         }
         imageText={articleId}
       />
-      <ArticleContent articleId={articleId} />
-      <ImageSlider />
+      <ArticleContent
+        articleId={articleId}
+        imageSliderSetSlides={imageSliderSetSlides}
+      />
+      <ImageSlider slides={slides} />
     </div>
   );
 }
