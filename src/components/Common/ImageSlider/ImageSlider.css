@@ -29,7 +29,7 @@
   position: absolute;
   right: 32px;
   font-size: 3rem;
-  color: #2a2721;
+  color: #181613;
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -39,7 +39,7 @@
   position: absolute;
   left: 32px;
   font-size: 3rem;
-  color: #2a2721;
+  color: #181613;
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -59,7 +59,10 @@
 }
 
 .backButton {
-  background-color: #2a2721;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #181613;
   font-weight: bold;
   color: #fdfbeb;
   width: 7vw;
@@ -68,4 +71,24 @@
 }
 .backButton:hover {
   background-color: rgba(167, 5, 5);
+}
+
+@media screen and (max-width: 600px) {
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0px;
+  }
+  .backButton {
+    width: 50vw;
+    height: 5vh;
+  }
+  .left-arrow {
+    left: 10px;
+    font-size: 10vw;
+  }
+  .right-arrow {
+    right: 10px;
+    font-size: 10vw;
+  }
 }

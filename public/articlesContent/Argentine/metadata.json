@@ -2,15 +2,35 @@
     "articleId": "Argentine",
     "cells": [
         {
-            "title": "San Antonio de Arecco",
+            "title": "Région de Buenos Aires",
             "subtitle": ""
         },
         {
-            "title": "Montée vers Iguazu",
+            "title": "Région d’Iguazu",
             "subtitle": ""
         },
         {
             "title": "Région de Salta et Jujuy",
+            "subtitle": ""
+        },
+        {
+            "title": "Nord du Chili",
+            "subtitle": ""
+        },
+        {
+            "title": "Région de Mendoza",
+            "subtitle": ""
+        },
+        {
+            "title": "Région des 7 Lacs et Bariloche",
+            "subtitle": ""
+        },
+        {
+            "title": "Patagonie",
+            "subtitle": ""
+        },
+        {
+            "title": "Terre de feu",
             "subtitle": ""
         }
     ]

@@ -15,7 +15,6 @@ function ArticleCell(props) {
       const outputJson = fetch(url).then((response) => response.json());
       return outputJson;
     }
-    console.log(props.imageMetadataUrl);
     fetchMetadata(props.imageMetadataUrl).then((r) =>
       setImageUrls(r["images"])
     );

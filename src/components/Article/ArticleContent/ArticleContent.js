@@ -35,7 +35,6 @@ function ArticleContent(props) {
         );
         setTableOfContent(renderedTableOfContent);
         setArticles(renderedArticles);
-        // addEventListenersForClass("article-cell-picture");
       } catch (e) {
         console.log("Error when fetching the metadata !");
         setTableOfContent([]);

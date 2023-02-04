@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="header">
       <Logo />
-      <HeaderButton text="Acceuil" url="/" />
+      <HeaderButton text="Accueil" url="/" />
       <Menus />
       <HeaderButton text="Contact" url="/contact" />
     </div>
