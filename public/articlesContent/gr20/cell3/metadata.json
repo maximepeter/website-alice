@@ -1,0 +1,20 @@
+{
+    "images": [
+        {
+            "imageUrl": "/articlesContent/gr20/cell3/images/image1.jpg",
+            "imageAlt": "TODO"
+        },
+        {
+            "imageUrl": "/articlesContent/gr20/cell3/images/image2.jpg",
+            "imageAlt": "TODO"
+        },
+        {
+            "imageUrl": "/articlesContent/gr20/cell3/images/image3.jpg",
+            "imageAlt": "TODO"
+        },
+        {
+            "imageUrl": "/articlesContent/gr20/cell3/images/image4.jpg",
+            "imageAlt": "TODO"
+        }
+    ]
+}

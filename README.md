@@ -16,4 +16,3 @@ This web project is a travel blog. The website is reachable at this URL : https:
 - Change the URL for articles, the spaces break the URL
 - Responsive design for phones :
   - The titles should keep on one line in the menus
-  - Update the Argentina text

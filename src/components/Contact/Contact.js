@@ -1,5 +1,5 @@
 function Contact() {
-  return <div>alice.rauzy@hotmail.com</div>;
+  return <div>This is the contact page</div>;
 }
 
 export default Contact;

@@ -6,10 +6,12 @@
         "subCategoryType": "Tourisme",
         "items": [
           {
-            "itemTitle": "Guyane"
+            "itemTitle": "Guyane",
+            "itemId": "guyane"
           },
           {
-            "itemTitle": "Argentine"
+            "itemTitle": "Argentine",
+            "itemId": "argentine"
           }
         ]
       },
@@ -17,13 +19,16 @@
         "subCategoryType": "Trek",
         "items": [
           {
-            "itemTitle": "GR 20 - Corse"
+            "itemTitle": "GR 20 - Corse",
+            "itemId": "gr20"
           },
           {
-            "itemTitle": "GR 58 - Queyras"
+            "itemTitle": "GR 58 - Queyras",
+            "itemId": "gr58"
           },
           {
-            "itemTitle": "GR 340 - Bretagne"
+            "itemTitle": "GR 340 - Bretagne",
+            "itemId": "gr340"
           }
         ]
       }
@@ -36,22 +41,28 @@
         "subCategoryType": "Rando Mercantour",
         "items": [
           {
-            "itemTitle": "Refuge des Merveilles"
+            "itemTitle": "Refuge des Merveilles",
+            "itemId": "refugedesmerveilles"
           },
           {
-            "itemTitle": "Refuge de Nice"
+            "itemTitle": "Refuge de Nice",
+            "itemId": "refugedenice"
           },
           {
-            "itemTitle": "Refuge de la Madone de Fenestre"
+            "itemTitle": "Refuge de la Madone de Fenestre",
+            "itemId": "refugedelamadonnedefenestre"
           },
           {
-            "itemTitle": "Refuge de la Cougourde"
+            "itemTitle": "Refuge de la Cougourde",
+            "itemId": "refugedelacougourde"
           },
           {
-            "itemTitle": "Refuge de Rabuons"
+            "itemTitle": "Refuge de Rabuons",
+            "itemId": "refugederabuons"
           },
           {
-            "itemTitle": "Refuge de Vens"
+            "itemTitle": "Refuge de Vens",
+            "itemId": "refugedevens"
           }
         ]
       },
@@ -68,13 +79,16 @@
         "subCategoryType": "",
         "items": [
           {
-            "itemTitle": "Matériel bivouac"
+            "itemTitle": "Matériel bivouac",
+            "itemId": "bivouac"
           },
           {
-            "itemTitle": "Matériel randonnée"
+            "itemTitle": "Matériel randonnée",
+            "itemId": "randonee"
           },
           {
-            "itemTitle": "Santé"
+            "itemTitle": "Santé",
+            "itemId": "sante"
           }
         ]
       }
