@@ -23,12 +23,6 @@
   text-align: left;
 }
 
-.head-summary {
-  height: 40vh;
-  border: solid black;
-  border-radius: 5px;
-}
-
 @media screen and (max-width: 600px) {
   .article-head-container {
     flex-direction: column;

@@ -1,0 +1,33 @@
+.head-summary {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #faf3b5;
+  border: solid rgb(167, 5, 5);
+  height: 20vh;
+  border-radius: 5px;
+}
+.head-summary-cell {
+  width: 40%;
+  height: 90%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.head-summary-item {
+  text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+  .head-summary {
+    flex-direction: column;
+    height: 60vh;
+  }
+  .head-summary-cell {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}

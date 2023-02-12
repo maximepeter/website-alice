@@ -1,6 +1,7 @@
 import "./ArticleContent.css";
 import ArticleCell from "./ArticleCell/ArticleCell";
-import { useEffect, useState } from "react";
+import ArticleSummary from "./ArticleSummary/ArticleSummary";
+import { useEffect, useState, useRef } from "react";
 import { appendArticlesAndContent } from "../../../utils";
 
 function ArticleContent(props) {
@@ -15,6 +16,10 @@ function ArticleContent(props) {
       imageSliderSetSlides={props.imageSliderSetSlides}
     />
   );
+  const [totalDistance, setTotalDistance] = useState(0);
+  const [totalPositiveElevation, setTotalPositiveElevation] = useState(0);
+  const [totalNegativeElevation, setTotalNegativeElevation] = useState(0);
+  const [recommendedSeason, setRecommendedSeason] = useState("");
 
   useEffect(() => {
     // Compute the content of the articles
@@ -35,6 +40,10 @@ function ArticleContent(props) {
         );
         setTableOfContent(renderedTableOfContent);
         setArticles(renderedArticles);
+        setTotalDistance(metadataJson.totalDistance);
+        setTotalPositiveElevation(metadataJson.totalPositiveElevation);
+        setTotalNegativeElevation(metadataJson.totalNegativeElevation);
+        setRecommendedSeason(metadataJson.recommendedSeason);
       } catch (e) {
         console.log("Error when fetching the metadata !");
         setTableOfContent([]);
@@ -45,10 +54,13 @@ function ArticleContent(props) {
     contentCreation.then((r) => {});
   }, [props.articleId, props.imageSliderSetSlides]);
 
+  const myRef = useRef(null);
+  const executeScroll = () => myRef.current.scrollIntoView();
+
   return (
     <div className="article-content">
       <div className="article-head-container">
-        <div className="article-map">
+        <div className="article-map" onClick={executeScroll}>
           <img
             src={
               "/articlesContent/" +
@@ -64,7 +76,13 @@ function ArticleContent(props) {
           <ul id="table-of-content">{tableOfContent}</ul>
         </div>
       </div>
-      <div className="head-summary">Test</div>
+
+      <ArticleSummary
+        totalDistance={totalDistance}
+        totalPositiveElevation={totalPositiveElevation}
+        totalNegativeElevation={totalNegativeElevation}
+        recommendedSeason={recommendedSeason}
+      />
       <div id="cell-container">{articles}</div>
     </div>
   );

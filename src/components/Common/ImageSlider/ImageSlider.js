@@ -1,5 +1,5 @@
 import "./ImageSlider.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import { hideImageSlider } from "../../../utils";
 
@@ -8,6 +8,16 @@ function ImageSlider(props) {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
+  function isClickedOutsideSlider(e) {
+    const target = e.target;
+    const clickedOnSlide =
+      target.matches(".image") ||
+      target.matches(".right-arrow") ||
+      target.matches(".left-arrow") ||
+      target.matches("path");
+    return !clickedOnSlide;
+  }
+
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   };
@@ -15,6 +25,16 @@ function ImageSlider(props) {
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
+
+  useEffect(() => {
+    document
+      .getElementById("imageSlider")
+      .addEventListener("click", (event) => {
+        if (isClickedOutsideSlider(event)) {
+          hideImageSlider();
+        }
+      });
+  }, []);
 
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;
@@ -43,9 +63,7 @@ function ImageSlider(props) {
           );
         })}
       </div>
-      <div className="backButton" onClick={() => hideImageSlider()}>
-        Retour
-      </div>
+      <div className="backButton">Retour</div>
     </div>
   );
 }

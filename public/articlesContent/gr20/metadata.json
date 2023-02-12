@@ -49,5 +49,9 @@
             "title": "Etape 12 : Paliri - Conca",
             "subtitle": "12 km, +160 -970, 4h30"
         }
-    ]
+    ],
+    "totalDistance": 180,
+    "totalPositiveElevation": 12100,
+    "totalNegativeElevation": 10230,
+    "recommendedSeason": "Septembre"
 }

@@ -20,14 +20,14 @@ function ArticleCell(props) {
     );
   }, [props.cellId, props.imageMetadataUrl, props.textPath]);
   return (
-    <div
-      className={"article-cell picture-" + props.imagePosition}
-      onClick={() => {
-        props.imageSliderSetSlides(imageUrlsandAlts);
-        displayImageSlider(props.imageSliderSetSlides);
-      }}
-    >
-      <div className="article-cell-picture">
+    <div className={"article-cell picture-" + props.imagePosition}>
+      <div
+        className="article-cell-picture"
+        onClick={() => {
+          props.imageSliderSetSlides(imageUrlsandAlts);
+          displayImageSlider(props.imageSliderSetSlides);
+        }}
+      >
         <img
           src={imageUrlsandAlts[0]["imageUrl"]}
           alt={imageUrlsandAlts[0]["imageAlt"]}

@@ -11,6 +11,10 @@
         {
             "imageUrl": "/articlesContent/gr20/cell10/images/image3.jpg",
             "imageAlt": "TODO"
+        },
+        {
+            "imageUrl": "/articlesContent/gr20/cell10/images/image4.jpg",
+            "imageAlt": "TODO"
         }
     ]
 }

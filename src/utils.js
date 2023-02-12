@@ -93,8 +93,6 @@ export async function appendArticlesAndContent(
   });
 }
 
-export function updateSlides(urls) {}
-
 export function displayImageSlider() {
   document.getElementById("imageSlider").classList.toggle("show");
   document.body.classList.toggle("noscroll");
