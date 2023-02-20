@@ -41,50 +41,46 @@ export function calculateImageSide(cellIndex) {
 }
 
 export function createArticleCell(
-  articleId,
   cellIndex,
   cellTitle,
   cellSubtitle,
+  articleUrl,
   imageSide,
   imageSliderSetSlides
 ) {
   return (
     <ArticleCell
-      imageMetadataUrl={
-        "articlesContent/" + articleId + "/cell" + cellIndex + "/metadata.json"
-      }
-      textPath={
-        "articlesContent/" + articleId + "/cell" + cellIndex + "/content.txt"
-      }
+      imageMetadataUrl={articleUrl + "/cell" + cellIndex + "/metadata.json"}
+      textPath={articleUrl + "/cell" + cellIndex + "/content.html"}
       title={cellTitle}
       subtitle={cellSubtitle}
-      cellId={cellIndex}
       imagePosition={imageSide}
-      key={cellIndex}
+      key={cellTitle + cellIndex}
       imageSliderSetSlides={imageSliderSetSlides}
     />
   );
 }
-
-export async function appendArticlesAndContent(
-  metadataJson,
-  articleId,
-  renderedTableOfContent,
+export async function appendTableOfContent(arr, renderedTableOfContent) {
+  arr.map((elmt, idx) =>
+    renderedTableOfContent.push(<li key={elmt.title + idx}>{elmt.title}</li>)
+  );
+}
+export async function appendArticles(
+  cells,
   renderedArticles,
+  articleUrl,
   imageSliderSetSlides
 ) {
-  const cells = metadataJson.cells;
   cells.map((cell, idx) => {
     let cellIndex = idx + 1;
     let imageSide;
-    renderedTableOfContent.push(<li key={idx}>{cell.title}</li>);
     imageSide = calculateImageSide(cellIndex);
     renderedArticles.push(
       createArticleCell(
-        articleId,
         cellIndex,
         cell.title,
         cell.subtitle,
+        articleUrl,
         imageSide,
         imageSliderSetSlides
       )

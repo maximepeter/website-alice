@@ -2,7 +2,7 @@ import "./ArticleContent.css";
 import ArticleCell from "./ArticleCell/ArticleCell";
 import ArticleSummary from "./ArticleSummary/ArticleSummary";
 import { useEffect, useState, useRef } from "react";
-import { appendArticlesAndContent } from "../../../utils";
+import { appendArticles, appendTableOfContent } from "../../../utils";
 
 function ArticleContent(props) {
   const [tableOfContent, setTableOfContent] = useState(<li>Loading</li>);
@@ -31,13 +31,39 @@ function ArticleContent(props) {
       );
       try {
         const metadataJson = await response.json();
-        appendArticlesAndContent(
-          metadataJson,
-          props.articleId,
-          renderedTableOfContent,
-          renderedArticles,
-          props.imageSliderSetSlides
-        );
+        switch (metadataJson.type) {
+          case "trek":
+            const cells = metadataJson.cells;
+            const articleUrl = "/articlesContent/" + props.articleId + "/";
+            appendTableOfContent(cells, renderedTableOfContent);
+            appendArticles(
+              cells,
+              renderedArticles,
+              articleUrl,
+              props.imageSliderSetSlides
+            );
+            break;
+          case "tourisme":
+            const groupsOfCells = metadataJson.groupsOfCells;
+            appendTableOfContent(groupsOfCells, renderedTableOfContent);
+            groupsOfCells.map((group, idx) => {
+              renderedArticles.push(
+                <h2 key={group.title + idx}>{group.title}</h2>
+              );
+              const articleUrl =
+                "/articlesContent/" + props.articleId + "/" + group.title;
+              appendArticles(
+                group.cells,
+                renderedArticles,
+                articleUrl,
+                props.imageSliderSetSlides
+              );
+              return 0;
+            });
+            break;
+          default:
+            console.log("Article type not found.");
+        }
         setTableOfContent(renderedTableOfContent);
         setArticles(renderedArticles);
         setTotalDistance(metadataJson.totalDistance);

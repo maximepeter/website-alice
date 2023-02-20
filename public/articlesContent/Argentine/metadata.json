@@ -1,37 +1,150 @@
 {
     "articleTitle": "Argentine",
-    "cells": [
+    "type": "tourisme",
+    "groupsOfCells": [
         {
             "title": "Région de Buenos Aires",
-            "subtitle": ""
+            "cells": [
+                {
+                    "title": "San Antonio de Arecco",
+                    "subtitle": ""
+                }
+            ]
         },
         {
-            "title": "Région d’Iguazu",
-            "subtitle": ""
+            "title": "Région d'Iguazu",
+            "cells": [
+                {
+                    "title": "Montée vers Iguazu",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Iguazu",
+                    "subtitle": ""
+                }
+            ]
         },
         {
             "title": "Région de Salta et Jujuy",
-            "subtitle": ""
+            "cells": [
+                {
+                    "title": "Cité sacrée des Quilmes",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Las Conchas",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Cafayate",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Molinos",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Cachi",
+                    "subtitle": ""
+                },
+                {
+                    "title": "La Poma",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Purmamarca",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Tilcara",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Humahuaca",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Salinas Grandes",
+                    "subtitle": ""
+                }
+            ]
         },
         {
             "title": "Nord du Chili",
-            "subtitle": ""
+            "cells": [
+                {
+                    "title": "San Pedro de Atacama",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Antofagasta",
+                    "subtitle": ""
+                }
+            ]
         },
         {
             "title": "Région de Mendoza",
-            "subtitle": ""
+            "cells": [
+                {
+                    "title": "Uspallata",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Potrerillos",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Cacheuta spa",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Mendoza",
+                    "subtitle": ""
+                }
+            ]
         },
         {
             "title": "Région des 7 Lacs et Bariloche",
-            "subtitle": ""
-        },
-        {
-            "title": "Patagonie",
-            "subtitle": ""
+            "cells": [
+                {
+                    "title": "San Martin de Los Andes",
+                    "subtitle": ""
+                },
+                {
+                    "title": "San Carlos de Bariloche",
+                    "subtitle": ""
+                }
+            ]
         },
         {
             "title": "Terre de feu",
-            "subtitle": ""
+            "cells": [
+                {
+                    "title": "Rio Gallagos",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Ushuaïa",
+                    "subtitle": ""
+                }
+            ]
+        },
+        {
+            "title": "Patagonie",
+            "cells": [
+                {
+                    "title": "El Calafate",
+                    "subtitle": ""
+                },
+                {
+                    "title": "El Chalten",
+                    "subtitle": ""
+                },
+                {
+                    "title": "Península Valdes",
+                    "subtitle": ""
+                }
+            ]
         }
     ]
 }

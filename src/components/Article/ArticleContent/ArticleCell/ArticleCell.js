@@ -9,7 +9,7 @@ function ArticleCell(props) {
     fetch(props.textPath)
       .then((r) => r.text())
       .then((text) => {
-        document.getElementById("cell-" + props.cellId).textContent = text;
+        document.getElementById("cell-" + props.title).innerHTML = text;
       });
     function fetchMetadata(url) {
       const outputJson = fetch(url).then((response) => response.json());
@@ -18,7 +18,7 @@ function ArticleCell(props) {
     fetchMetadata(props.imageMetadataUrl).then((r) =>
       setImageUrls(r["images"])
     );
-  }, [props.cellId, props.imageMetadataUrl, props.textPath]);
+  }, [props.cellId, props.imageMetadataUrl, props.textPath, props.title]);
   return (
     <div className={"article-cell picture-" + props.imagePosition}>
       <div
@@ -38,9 +38,9 @@ function ArticleCell(props) {
         </div>
       </div>
       <div className="article-cell-content">
-        <div className="article-cell-text-title"> {props.title}</div>
+        <h2 className="article-cell-text-title"> {props.title}</h2>
         <div className="article-cell-text-subtitle">{props.subtitle}</div>
-        <div className="article-cell-text" id={"cell-" + props.cellId}></div>
+        <div className="article-cell-text" id={"cell-" + props.title}></div>
       </div>
     </div>
   );
