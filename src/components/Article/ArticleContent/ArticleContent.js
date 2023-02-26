@@ -35,6 +35,7 @@ function ArticleContent(props) {
           case "trek":
             const cells = metadataJson.cells;
             const articleUrl = "/articlesContent/" + props.articleId + "/";
+            console.log(articleUrl);
             appendTableOfContent(cells, renderedTableOfContent);
             appendArticles(
               cells,
@@ -51,7 +52,8 @@ function ArticleContent(props) {
                 <h2 key={group.title + idx}>{group.title}</h2>
               );
               const articleUrl =
-                "/articlesContent/" + props.articleId + "/" + group.title;
+                "/articlesContent/" + props.articleId + "/" + group.title + "/";
+              console.log(articleUrl);
               appendArticles(
                 group.cells,
                 renderedArticles,
