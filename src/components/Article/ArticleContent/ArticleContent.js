@@ -70,8 +70,9 @@ function ArticleContent(props) {
         setTotalPositiveElevation(metadataJson.totalPositiveElevation);
         setTotalNegativeElevation(metadataJson.totalNegativeElevation);
         setRecommendedSeason(metadataJson.recommendedSeason);
-      } catch (e) {
-        console.log("Error when fetching the metadata !");
+      } catch (error) {
+        console.error("Error when fetching the metadata !");
+        console.error(error);
         setTableOfContent([]);
         setArticles([]);
       }

@@ -4,6 +4,7 @@ This web project is a travel blog. The website is reachable at this URL : https:
 
 # TO DO
 
+- /!\ Fix the fetch fail when online
 - Table of contents :
   - Change bullet points style
   - Add hypertext link : When the user click on an element he should be redirected to the correct article
