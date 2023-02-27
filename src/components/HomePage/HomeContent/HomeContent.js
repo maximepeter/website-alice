@@ -18,7 +18,10 @@ function HomeContent() {
         </p>
       </div>
       <div className="homePhoto">
-        <img alt="Homepage illustration" src="/homePageContentPhoto.jpg" />
+        <img
+          alt="Homepage illustration"
+          src="https://lefuretblancstorage.blob.core.windows.net/content/homePageContentPhoto.jpg"
+        />
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ function TopImage(props) {
   const imagePath = props.imagePath;
   return (
     <div className="topImage">
-      <img alt="Top landscape" src={imagePath} />
+      <img alt="Top landscape" src={imagePath} loading="lazy" />
       <div className="top-image-text">{imageText}</div>
     </div>
   );

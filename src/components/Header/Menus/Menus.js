@@ -8,7 +8,9 @@ function Menus() {
   const [menus, setMenus] = useState(<div>Loading</div>);
   useEffect(() => {
     const fetchMenuInfos = async () => {
-      const response = await fetch("/menuInfos.json");
+      const response = await fetch(
+        "https://lefuretblancstorage.blob.core.windows.net/content/menuInfos.json"
+      );
       const menuInfos = await response.json();
       menuInfos.map((menuInfos, idx) =>
         renderedMenus.push(<Menu key={idx} menuInfos={menuInfos} />)

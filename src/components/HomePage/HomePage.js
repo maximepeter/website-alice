@@ -5,7 +5,10 @@ import HomeContent from "./HomeContent/HomeContent";
 function HomePage() {
   return (
     <div className="homePage">
-      <TopImage imagePath="/topHomePhoto.jpg" imageText="" />
+      <TopImage
+        imagePath="https://lefuretblancstorage.blob.core.windows.net/content/topHomePhoto.jpg"
+        imageText=""
+      />
       <HomeContent />
     </div>
   );

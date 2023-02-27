@@ -3,7 +3,6 @@ import Header from "./components/Header/Header";
 import HomePage from "./components/HomePage/HomePage";
 import Article from "./components/Article/Article";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-
 import {
   clearAllDropdownsState,
   clearAllMenusState,
