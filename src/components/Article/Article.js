@@ -15,18 +15,17 @@ function Article() {
     [setSlides]
   );
   const [articleTitle, setArticleTitle] = useState("Title");
-
   useEffect(() => {
-    fetch("/articlesContent/" + articleId + "/metadata.json")
+    fetch(
+      `${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content/articlesContent/${articleId}/metadata.json`
+    )
       .then((r) => r.json())
       .then((r) => setArticleTitle(r["articleTitle"]));
   }, [articleId]);
   return (
     <div className="article">
       <TopImage
-        imagePath={
-          "/articlesContent/" + articleId + "/top" + articleId + ".jpg"
-        }
+        imagePath={`${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content/articlesContent/${articleId}/top${articleId}.jpg`}
         imageText={articleTitle}
       />
       <ArticleContent

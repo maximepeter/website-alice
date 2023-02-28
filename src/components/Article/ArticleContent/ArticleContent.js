@@ -21,20 +21,23 @@ function ArticleContent(props) {
   const [totalNegativeElevation, setTotalNegativeElevation] = useState(0);
   const [recommendedSeason, setRecommendedSeason] = useState("");
 
+  const articleRootUrl = `${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content/articlesContent/${props.articleId}`;
   useEffect(() => {
     // Compute the content of the articles
     const renderedTableOfContent = [];
     const renderedArticles = [];
+    const metadataBlobURL = `${articleRootUrl}/metadata.json`;
     const createContent = async () => {
-      const response = await fetch(
-        "/articlesContent/" + props.articleId + "/metadata.json"
-      );
+      const response = await fetch(metadataBlobURL)
+        .then((r) => r.blob())
+        .then((blob) => blob.text())
+        .then((txt) => JSON.parse(txt));
       try {
-        const metadataJson = await response.json();
+        const metadataJson = await response;
         switch (metadataJson.type) {
           case "trek":
             const cells = metadataJson.cells;
-            const articleUrl = "/articlesContent/" + props.articleId + "/";
+            const articleUrl = `${articleRootUrl}`;
             appendTableOfContent(cells, renderedTableOfContent);
             appendArticles(
               cells,
@@ -50,8 +53,7 @@ function ArticleContent(props) {
               renderedArticles.push(
                 <h2 key={group.title + idx}>{group.title}</h2>
               );
-              const articleUrl =
-                "/articlesContent/" + props.articleId + "/" + group.title + "/";
+              const articleUrl = `${articleRootUrl}/${group.title}`;
               appendArticles(
                 group.cells,
                 renderedArticles,
@@ -79,7 +81,7 @@ function ArticleContent(props) {
     };
     const contentCreation = createContent();
     contentCreation.then((r) => {});
-  }, [props.articleId, props.imageSliderSetSlides]);
+  }, [props.articleId, props.imageSliderSetSlides, articleRootUrl]);
 
   const myRef = useRef(null);
   const executeScroll = () => myRef.current.scrollIntoView();
@@ -89,13 +91,7 @@ function ArticleContent(props) {
       <div className="article-head-container">
         <div className="article-map" onClick={executeScroll}>
           <img
-            src={
-              "/articlesContent/" +
-              props.articleId +
-              "/map" +
-              props.articleId +
-              ".jpg"
-            }
+            src={`${articleRootUrl}/map${props.articleId}.jpg`}
             alt={props.articleId + " map"}
           />
         </div>

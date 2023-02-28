@@ -15,9 +15,15 @@ function ArticleCell(props) {
       const outputJson = fetch(url).then((response) => response.json());
       return outputJson;
     }
-    fetchMetadata(props.imageMetadataUrl).then((r) =>
-      setImageUrls(r["images"])
-    );
+    fetchMetadata(props.imageMetadataUrl).then((r) => {
+      r["images"].map(
+        (elmt) =>
+          (elmt[
+            "imageUrl"
+          ] = `${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content${elmt["imageUrl"]}`)
+      );
+      setImageUrls(r["images"]);
+    });
   }, [props.cellId, props.imageMetadataUrl, props.textPath, props.title]);
   return (
     <div className={"article-cell picture-" + props.imagePosition}>

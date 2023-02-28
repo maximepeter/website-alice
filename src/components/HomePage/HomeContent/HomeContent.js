@@ -20,7 +20,7 @@ function HomeContent() {
       <div className="homePhoto">
         <img
           alt="Homepage illustration"
-          src="https://lefuretblancstorage.blob.core.windows.net/content/homePageContentPhoto.jpg"
+          src={`${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content/homePageContentPhoto.jpg`}
         />
       </div>
     </div>

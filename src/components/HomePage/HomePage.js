@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <div className="homePage">
       <TopImage
-        imagePath="https://lefuretblancstorage.blob.core.windows.net/content/topHomePhoto.jpg"
+        imagePath={`${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content/topHomePhoto.jpg`}
         imageText=""
       />
       <HomeContent />
