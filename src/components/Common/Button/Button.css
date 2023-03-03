@@ -1,4 +1,4 @@
-.contactButton {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,14 +8,15 @@
   border-radius: 20px;
   padding: 10px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-.contactButton:hover {
+.button:hover {
   background-color: rgba(167, 5, 5);
 }
 
 @media screen and (max-width: 600px) {
-  .contactButton {
+  .button {
     height: 15%;
   }
 }
