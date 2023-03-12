@@ -1,4 +1,5 @@
 import ArticleCell from "./components/Article/ArticleContent/ArticleCell/ArticleCell";
+import TableOfContentItem from "./components/Common/TableOfContentItem/TableOfContentItem";
 
 export function isClickedOnMenu(event) {
   var clickedOnMenu =
@@ -62,7 +63,9 @@ export function createArticleCell(
 }
 export async function appendTableOfContent(arr, renderedTableOfContent) {
   arr.map((elmt, idx) =>
-    renderedTableOfContent.push(<li key={elmt.title + idx}>{elmt.title}</li>)
+    renderedTableOfContent.push(
+      <TableOfContentItem title={elmt.title} idx={idx} />
+    )
   );
 }
 export async function appendArticles(

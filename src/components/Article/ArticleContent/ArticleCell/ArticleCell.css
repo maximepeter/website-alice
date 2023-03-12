@@ -80,20 +80,24 @@
     padding-bottom: 0;
   }
   .article-cell-content {
-    width: 90%;
+    width: 95%;
   }
   .article-cell-text-title {
-    font-size: 5.5vw;
+    font-size: 6vw;
   }
   .article-cell-text-subtitle {
-    font-size: 4.5vw;
+    font-size: 5vw;
   }
   .article-cell-text {
-    font-size: 4vw;
+    font-size: 4.5vw;
   }
 
   .article-cell-picture img {
-    max-width: 90%;
+    max-width: 100%;
     max-height: 20%;
+    border-radius: unset;
+  }
+  .overlayBlock {
+    border-radius: unset;
   }
 }

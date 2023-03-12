@@ -26,7 +26,10 @@ function ArticleCell(props) {
     });
   }, [props.cellId, props.imageMetadataUrl, props.textPath, props.title]);
   return (
-    <div className={"article-cell picture-" + props.imagePosition}>
+    <div
+      id={encodeURI(props.title)}
+      className={"article-cell picture-" + props.imagePosition}
+    >
       <div
         className="article-cell-picture"
         onClick={() => {
@@ -44,7 +47,7 @@ function ArticleCell(props) {
         </div>
       </div>
       <div className="article-cell-content">
-        <h2 className="article-cell-text-title"> {props.title}</h2>
+        <div className="article-cell-text-title"> {props.title}</div>
         <div className="article-cell-text-subtitle">{props.subtitle}</div>
         <div className="article-cell-text" id={"cell-" + props.title}></div>
       </div>
