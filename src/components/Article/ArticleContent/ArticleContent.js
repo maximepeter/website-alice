@@ -51,7 +51,9 @@ function ArticleContent(props) {
             appendTableOfContent(groupsOfCells, renderedTableOfContent);
             groupsOfCells.map((group, idx) => {
               renderedArticles.push(
-                <h2 key={group.title + idx}>{group.title}</h2>
+                <h2 key={group.title + idx} id={encodeURI(group.title)}>
+                  {group.title}
+                </h2>
               );
               const articleUrl = `${articleRootUrl}/${group.title}`;
               appendArticles(
