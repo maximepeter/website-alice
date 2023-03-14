@@ -40,7 +40,6 @@ function ArticleCell(props) {
         <img
           src={imageUrlsandAlts[0]["imageUrl"]}
           alt={imageUrlsandAlts[0]["imageAlt"]}
-          loading="lazy"
         />
         <div className="overlayBlock">
           <div className="overlayText">Plus ...</div>
