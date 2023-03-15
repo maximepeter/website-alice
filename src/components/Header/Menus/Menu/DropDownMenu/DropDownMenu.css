@@ -7,12 +7,17 @@
   width: 300%;
 }
 
-.dropDownItem {
-  display: block;
-  text-align: left;
-}
-
 .show {
   display: flex;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 600px) {
+  .dropDownMenu {
+    width: 100vw;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    border-radius: unset;
+  }
 }

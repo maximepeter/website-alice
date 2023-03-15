@@ -8,3 +8,10 @@
   max-height: 90%;
   max-width: 12vw;
 }
+
+@media screen and (max-width: 600px) {
+  .logo img {
+    max-height: 90%;
+    max-width: 10vw;
+  }
+}
