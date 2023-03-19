@@ -7,6 +7,7 @@ This web project is a travel blog. The website is reachable at this URL : https:
 - Table of contents :
   - Change bullet points style
 - Change the articles' subtitles style
+- Add a icon on the mobile version in order like on instagram
 - Responsive design for phones :
   - The titles should keep on one line in the menus => It fails on Alice's phone.
 - Ajouter l'article de l'Argentine dès que Task 1 est faite : On-going
