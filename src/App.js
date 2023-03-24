@@ -7,7 +7,7 @@ import {
   clearAllDropdownsState,
   clearAllMenusState,
   isClickedOnMenu,
-} from "./utils";
+} from "./utils/utils";
 import Contact from "./components/Contact/Contact";
 
 function App() {

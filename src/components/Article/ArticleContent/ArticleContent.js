@@ -1,8 +1,9 @@
 import "./ArticleContent.css";
 import ArticleCell from "./ArticleCell/ArticleCell";
 import ArticleSummary from "./ArticleSummary/ArticleSummary";
-import { useEffect, useState, useRef } from "react";
-import { appendArticles, appendTableOfContent } from "../../../utils";
+import { useEffect, useState } from "react";
+import { appendArticles, appendTableOfContent } from "../../../utils/utils";
+import { fetchBlobToText } from "../../../utils/utils";
 
 function ArticleContent(props) {
   const [tableOfContent, setTableOfContent] = useState(<li>Loading</li>);
@@ -28,21 +29,17 @@ function ArticleContent(props) {
     const renderedArticles = [];
     const metadataBlobURL = `${articleRootUrl}/metadata.json`;
     const createContent = async () => {
-      const response = await fetch(metadataBlobURL)
-        .then((r) => r.blob())
-        .then((blob) => blob.text())
-        .then((txt) => JSON.parse(txt));
+      const response = await fetchBlobToText(metadataBlobURL);
       try {
         const metadataJson = await response;
         switch (metadataJson.type) {
           case "trek":
             const cells = metadataJson.cells;
-            const articleUrl = `${articleRootUrl}`;
             appendTableOfContent(cells, renderedTableOfContent);
             appendArticles(
               cells,
               renderedArticles,
-              articleUrl,
+              `${articleRootUrl}`,
               props.imageSliderSetSlides
             );
             break;
@@ -55,11 +52,10 @@ function ArticleContent(props) {
                   {group.title}
                 </h2>
               );
-              const articleUrl = `${articleRootUrl}/${group.title}`;
               appendArticles(
                 group.cells,
                 renderedArticles,
-                articleUrl,
+                `${articleRootUrl}/${group.title}`,
                 props.imageSliderSetSlides
               );
               return 0;
@@ -81,17 +77,13 @@ function ArticleContent(props) {
         setArticles([]);
       }
     };
-    const contentCreation = createContent();
-    contentCreation.then((r) => {});
+    createContent().then((r) => {});
   }, [props.articleId, props.imageSliderSetSlides, articleRootUrl]);
-
-  const myRef = useRef(null);
-  const executeScroll = () => myRef.current.scrollIntoView();
 
   return (
     <div className="article-content">
       <div className="article-head-container">
-        <div className="article-map" onClick={executeScroll}>
+        <div className="article-map">
           <img
             src={`${articleRootUrl}/map${props.articleId}.jpg`}
             alt={props.articleId + " map"}
@@ -101,7 +93,6 @@ function ArticleContent(props) {
           <ul id="table-of-content">{tableOfContent}</ul>
         </div>
       </div>
-
       <ArticleSummary
         totalDistance={totalDistance}
         totalPositiveElevation={totalPositiveElevation}

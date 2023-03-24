@@ -1,7 +1,7 @@
 import "./ImageSlider.css";
 import React, { useEffect, useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
-import { hideImageSlider } from "../../../utils";
+import { hideImageSlider } from "../../../utils/utils";
 
 function ImageSlider(props) {
   const slides = props.slides;

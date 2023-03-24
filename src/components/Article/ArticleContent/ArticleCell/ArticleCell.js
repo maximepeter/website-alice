@@ -1,6 +1,7 @@
 import "./ArticleCell.css";
 import { useState, useEffect } from "react";
-import { displayImageSlider } from "../../../../utils";
+import { displayImageSlider } from "../../../../utils/utils";
+import { fetchBlobToJson } from "../../../../utils/utils";
 
 function ArticleCell(props) {
   const [imageUrlsandAlts, setImageUrls] = useState([{ image: "" }]);
@@ -11,11 +12,7 @@ function ArticleCell(props) {
       .then((text) => {
         document.getElementById("cell-" + props.title).innerHTML = text;
       });
-    function fetchMetadata(url) {
-      const outputJson = fetch(url).then((response) => response.json());
-      return outputJson;
-    }
-    fetchMetadata(props.imageMetadataUrl).then((r) => {
+    fetchBlobToJson(props.imageMetadataUrl).then((r) => {
       r["images"].map(
         (elmt) =>
           (elmt[

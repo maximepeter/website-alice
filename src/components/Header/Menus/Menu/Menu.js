@@ -6,7 +6,7 @@ import {
   clearAllDropdownsState,
   clearAllMenusState,
   isClickedOnMenu,
-} from "../../../../utils";
+} from "../../../../utils/utils";
 
 function Menu(props) {
   let menuType = props.menuInfos.categoryType;
