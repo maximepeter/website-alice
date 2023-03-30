@@ -32,9 +32,24 @@ function ArticleContent(props) {
       const response = await fetchBlobToText(metadataBlobURL);
       try {
         const metadataJson = await response;
+        const cells = metadataJson.cells;
         switch (metadataJson.type) {
           case "trek":
-            const cells = metadataJson.cells;
+            if (
+              document.getElementById("article-map").classList.contains("hide")
+            ) {
+              document.getElementById("article-map").classList.remove("hide");
+            }
+            appendTableOfContent(cells, renderedTableOfContent);
+            appendArticles(
+              cells,
+              renderedArticles,
+              `${articleRootUrl}`,
+              props.imageSliderSetSlides
+            );
+            break;
+          case "prepa":
+            document.getElementById("article-map").classList.toggle("hide");
             appendTableOfContent(cells, renderedTableOfContent);
             appendArticles(
               cells,
@@ -83,7 +98,7 @@ function ArticleContent(props) {
   return (
     <div className="article-content">
       <div className="article-head-container">
-        <div className="article-map">
+        <div id="article-map">
           <img
             src={`${articleRootUrl}/map${props.articleId}.jpg`}
             alt={props.articleId + " map"}

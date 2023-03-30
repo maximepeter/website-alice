@@ -14,3 +14,4 @@ This web project is a travel blog. The website is reachable at this URL : https:
 - Mettre du css sur les bullet points
 - Photo update : Mettre àa jour toutes les photos du Queyras et de l'Argentine
   - Argentine : To check
+- Make the hovering effect on the table of contents fit only the text size
