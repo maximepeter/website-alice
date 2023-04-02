@@ -15,3 +15,4 @@ This web project is a travel blog. The website is reachable at this URL : https:
 - Photo update : Mettre àa jour toutes les photos du Queyras et de l'Argentine
   - Argentine : To check
 - Make the hovering effect on the table of contents fit only the text size
+- Calculate the number of photos to display depending on the text size

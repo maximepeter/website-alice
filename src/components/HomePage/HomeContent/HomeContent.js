@@ -5,9 +5,9 @@ function HomeContent() {
     <div className="homePageContent">
       <div className="homeText">
         <p>
-          Je m’appelle Alice, j’habite actuellement dans les Alpes Maritimes et
-          j’ai la petite trentaine. J’ai découvert la randonnée il y a quelques
-          années en Argentine, et je n’ai jamais arrêté depuis.
+          Je m’appelle Alice et j’habite actuellement dans les Alpes Maritimes.
+          J’ai découvert la randonnée il y a quelques années en Argentine, et je
+          n’ai jamais arrêté depuis.
         </p>
         <p>
           Que ce soit pour des voyages, des sorties à la journée ou bien des
