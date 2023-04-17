@@ -4,7 +4,10 @@ import { displayImageSlider } from "../../../../utils/utils";
 import { fetchBlobToJson } from "../../../../utils/utils";
 
 function ArticleCell(props) {
-  const [imageUrlsandAlts, setImageUrls] = useState([{ image: "" }]);
+  const [imageUrlsandAlts, setImageUrlsandAlts] = useState([{ image: "" }]);
+  const [displayedImages, setDisplayedImages] = useState([
+    <img src="" alt="" />,
+  ]);
 
   useEffect(() => {
     fetch(props.textPath)
@@ -12,6 +15,7 @@ function ArticleCell(props) {
       .then((text) => {
         document.getElementById("cell-" + props.title).innerHTML = text;
       });
+
     fetchBlobToJson(props.imageMetadataUrl).then((r) => {
       r["images"].map(
         (elmt) =>
@@ -19,7 +23,20 @@ function ArticleCell(props) {
             "imageUrl"
           ] = `${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content${elmt["imageUrl"]}`)
       );
-      setImageUrls(r["images"]);
+      const textSize = document.getElementById("cell-" + props.title).innerHTML
+        .length;
+      const imagesToDisplay = Math.floor(textSize / 1300);
+      const displayedImages = [];
+      for (let i = 0; i <= imagesToDisplay; i++) {
+        displayedImages.push(
+          <img
+            src={r["images"][i]["imageUrl"]}
+            alt={r["images"][i]["imageAlt"]}
+          />
+        );
+      }
+      setImageUrlsandAlts(r["images"]);
+      setDisplayedImages(displayedImages);
     });
   }, [props.cellId, props.imageMetadataUrl, props.textPath, props.title]);
   return (
@@ -34,10 +51,7 @@ function ArticleCell(props) {
           displayImageSlider(props.imageSliderSetSlides);
         }}
       >
-        <img
-          src={imageUrlsandAlts[0]["imageUrl"]}
-          alt={imageUrlsandAlts[0]["imageAlt"]}
-        />
+        {displayedImages.map((img) => img)}
         <div className="overlayBlock">
           <div className="overlayText">Plus ...</div>
         </div>
