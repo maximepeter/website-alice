@@ -4,6 +4,8 @@ This web project is a travel blog. The website is reachable at this URL : https:
 
 # TO DO
 
+- Remove the summary header for tourisme and prepa
+- Remove the table of contents for prepa
 - Table of contents :
   - Change bullet points style
 - Change the articles' subtitles style

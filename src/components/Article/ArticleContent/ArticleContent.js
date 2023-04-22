@@ -2,8 +2,11 @@ import "./ArticleContent.css";
 import ArticleCell from "./ArticleCell/ArticleCell";
 import ArticleSummary from "./ArticleSummary/ArticleSummary";
 import { useEffect, useState } from "react";
-import { appendArticles, appendTableOfContent } from "../../../utils/utils";
-import { fetchBlobToText } from "../../../utils/utils";
+import {
+  appendArticles,
+  appendTableOfContent,
+  fetchBlobToJson,
+} from "../../../utils/utils";
 
 function ArticleContent(props) {
   const [tableOfContent, setTableOfContent] = useState(<li>Loading</li>);
@@ -17,10 +20,6 @@ function ArticleContent(props) {
       imageSliderSetSlides={props.imageSliderSetSlides}
     />
   );
-  const [totalDistance, setTotalDistance] = useState(0);
-  const [totalPositiveElevation, setTotalPositiveElevation] = useState(0);
-  const [totalNegativeElevation, setTotalNegativeElevation] = useState(0);
-  const [recommendedSeason, setRecommendedSeason] = useState("");
 
   const articleRootUrl = `${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content/articlesContent/${props.articleId}`;
   useEffect(() => {
@@ -29,7 +28,7 @@ function ArticleContent(props) {
     const renderedArticles = [];
     const metadataBlobURL = `${articleRootUrl}/metadata.json`;
     const createContent = async () => {
-      const response = await fetchBlobToText(metadataBlobURL);
+      const response = await fetchBlobToJson(metadataBlobURL);
       try {
         const metadataJson = await response;
         const cells = metadataJson.cells;
@@ -40,6 +39,12 @@ function ArticleContent(props) {
             ) {
               document.getElementById("article-map").classList.remove("hide");
             }
+            // document.getElementById("article-content").insertBefore(
+            //   <ArticleSummary url={`${articleRootUrl}/articleSummary.html`} />,
+            //   // document.createElement("div"),
+            //   document.getElementById("article-content").children[0]
+            // );
+
             appendTableOfContent(cells, renderedTableOfContent);
             appendArticles(
               cells,
@@ -81,10 +86,6 @@ function ArticleContent(props) {
         }
         setTableOfContent(renderedTableOfContent);
         setArticles(renderedArticles);
-        setTotalDistance(metadataJson.totalDistance);
-        setTotalPositiveElevation(metadataJson.totalPositiveElevation);
-        setTotalNegativeElevation(metadataJson.totalNegativeElevation);
-        setRecommendedSeason(metadataJson.recommendedSeason);
       } catch (error) {
         console.error("Error when fetching the metadata !");
         console.error(error);
@@ -96,7 +97,7 @@ function ArticleContent(props) {
   }, [props.articleId, props.imageSliderSetSlides, articleRootUrl]);
 
   return (
-    <div className="article-content">
+    <div id="article-content">
       <div className="article-head-container">
         <div id="article-map">
           <img
@@ -104,16 +105,11 @@ function ArticleContent(props) {
             alt={props.articleId + " map"}
           />
         </div>
-        <div className="article-table-of-contents">
+        <div id="article-table-of-contents">
           <ul id="table-of-content">{tableOfContent}</ul>
         </div>
       </div>
-      <ArticleSummary
-        totalDistance={totalDistance}
-        totalPositiveElevation={totalPositiveElevation}
-        totalNegativeElevation={totalNegativeElevation}
-        recommendedSeason={recommendedSeason}
-      />
+      <ArticleSummary url={`${articleRootUrl}/articleSummary.html`} />
       <div id="cell-container">{articles}</div>
     </div>
   );

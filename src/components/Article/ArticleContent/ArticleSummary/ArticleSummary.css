@@ -1,4 +1,4 @@
-.head-summary {
+#head-summary {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -7,7 +7,7 @@
   height: 20vh;
   border-radius: 5px;
 }
-.head-summary-cell {
+#head-summary-cell {
   width: 40%;
   height: 90%;
   display: flex;
@@ -19,11 +19,11 @@
 }
 
 @media screen and (max-width: 600px) {
-  .head-summary {
+  #head-summary {
     flex-direction: column;
     height: 60vh;
   }
-  .head-summary-cell {
+  #head-summary-cell {
     width: 90%;
     padding-left: 5%;
     padding-right: 5%;

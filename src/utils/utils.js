@@ -155,9 +155,16 @@ function checkMail(inputMail, postOptions, url) {
 export function fetchBlobToText(blobUrl) {
   const textBlob = fetch(blobUrl)
     .then((r) => r.blob())
-    .then((blob) => blob.text())
-    .then((txt) => JSON.parse(txt));
+    .then((blob) => blob.text());
   return textBlob;
+}
+
+export function fetchBlobToHtmlObject(blobUrl) {
+  var htmlObject = document.createElement("");
+  fetchBlobToText(blobUrl).then((text) => {
+    htmlObject.innerHTML = text;
+  });
+  return htmlObject;
 }
 
 export function fetchBlobToJson(blobUrl) {

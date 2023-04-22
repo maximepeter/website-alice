@@ -1,23 +1,17 @@
+import { fetchBlobToText } from "../../../../utils/utils";
 import "./ArticleSummary.css";
+import { useEffect } from "react";
 
 function ArticleSummary(props) {
+  useEffect(() => {
+    console.log(document.getElementById("head-summary-cell"));
+    fetchBlobToText(props.url).then(
+      (html) => (document.getElementById("head-summary-cell").innerHTML = html)
+    );
+  });
   return (
-    <div className="head-summary">
-      <div className="head-summary-cell">
-        <div className="head-summary-item">
-          <b>Période conseillée :</b> {props.recommendedSeason}
-        </div>
-        <div className="head-summary-item">
-          <b>Dénivelé positif total :</b> {props.totalPositiveElevation} m
-        </div>
-        <div className="head-summary-item">
-          <b>Dénivelé négatif total :</b> {props.totalNegativeElevation} m
-        </div>
-        <div className="head-summary-item">
-          <b>Distance totale :</b> {props.totalDistance} km
-        </div>
-      </div>
-      <div className="head-summary-cell">TO DO</div>
+    <div id="head-summary">
+      <div id="head-summary-cell"></div>
     </div>
   );
 }
