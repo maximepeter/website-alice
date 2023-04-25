@@ -1,31 +1,12 @@
 #head-summary {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #faf3b5;
+  background-color: #f7f3d1;
   border: solid rgb(167, 5, 5);
-  height: 20vh;
   border-radius: 5px;
 }
 #head-summary-cell {
-  width: 40%;
-  height: 90%;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
+  padding: 10px;
+  text-align: justify;
 }
 .head-summary-item {
   text-align: left;
-}
-
-@media screen and (max-width: 600px) {
-  #head-summary {
-    flex-direction: column;
-    height: 60vh;
-  }
-  #head-summary-cell {
-    width: 90%;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
 }

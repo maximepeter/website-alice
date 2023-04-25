@@ -22,3 +22,4 @@ This web project is a travel blog. The website is reachable at this URL : https:
 - SEO optimization :
   - Implementing dynamic meta tags
   - Check the search console optimizations and define a backlog
+- Finish the argentine's article
