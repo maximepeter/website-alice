@@ -20,6 +20,7 @@ function ArticleContent(props) {
       imageSliderSetSlides={props.imageSliderSetSlides}
     />
   );
+  const [summary, setSummary] = useState();
 
   const articleRootUrl = `${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content/articlesContent/${props.articleId}`;
   useEffect(() => {
@@ -39,11 +40,9 @@ function ArticleContent(props) {
             ) {
               document.getElementById("article-map").classList.remove("hide");
             }
-            // document.getElementById("article-content").insertBefore(
-            //   <ArticleSummary url={`${articleRootUrl}/articleSummary.html`} />,
-            //   // document.createElement("div"),
-            //   document.getElementById("article-content").children[0]
-            // );
+            setSummary(
+              <ArticleSummary url={`${articleRootUrl}/articleSummary.html`} />
+            );
 
             appendTableOfContent(cells, renderedTableOfContent);
             appendArticles(
@@ -55,6 +54,7 @@ function ArticleContent(props) {
             break;
           case "prepa":
             document.getElementById("article-map").classList.toggle("hide");
+            setSummary();
             appendTableOfContent(cells, renderedTableOfContent);
             appendArticles(
               cells,
@@ -65,10 +65,15 @@ function ArticleContent(props) {
             break;
           case "tourisme":
             const groupsOfCells = metadataJson.groupsOfCells;
+            setSummary();
             appendTableOfContent(groupsOfCells, renderedTableOfContent);
             groupsOfCells.map((group, idx) => {
               renderedArticles.push(
-                <h2 key={group.title + idx} id={encodeURI(group.title)}>
+                <h2
+                  key={group.title + idx}
+                  id={encodeURI(group.title)}
+                  className="article-group-title"
+                >
                   {group.title}
                 </h2>
               );
@@ -109,7 +114,8 @@ function ArticleContent(props) {
           <ul id="table-of-content">{tableOfContent}</ul>
         </div>
       </div>
-      <ArticleSummary url={`${articleRootUrl}/articleSummary.html`} />
+      {/* <ArticleSummary url={`${articleRootUrl}/articleSummary.html`} /> */}
+      {summary}
       <div id="cell-container">{articles}</div>
     </div>
   );
