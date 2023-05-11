@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useState, useCallback, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import TopImage from "../Common/TopImage/TopImage";
 import ArticleContent from "./ArticleContent/ArticleContent";
 import "./Article.css";
@@ -24,6 +25,22 @@ function Article() {
   }, [articleId]);
   return (
     <div className="article">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Le Furet Blanc | {articleTitle}</title>
+        <meta
+          name="description"
+          content={`${articleId} : Retrouvez toutes les informations pratiques sur ce voyage !`}
+        />
+        <meta
+          property="og:title"
+          content={`Le Furet Blanc | ${articleTitle}`}
+        />
+        <meta
+          property="og:description"
+          content={`${articleId} : Retrouvez toutes les informations pratiques sur ce voyage !`}
+        />
+      </Helmet>
       <TopImage
         imagePath={`${process.env.REACT_APP_STORAGE_ACCOUNT_URL}/content/articlesContent/${articleId}/top${articleId}.jpg`}
         imageText={articleTitle}
