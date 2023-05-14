@@ -57,7 +57,7 @@ function ArticleCell(props) {
         </div>
       </div>
       <div className="article-cell-content">
-        <div className="article-cell-text-title"> {props.title}</div>
+        <h2 className="article-cell-text-title"> {props.title}</h2>
         <div className="article-cell-text-subtitle">{props.subtitle}</div>
         <div className="article-cell-text" id={"cell-" + props.title}></div>
       </div>
