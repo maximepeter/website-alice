@@ -16,10 +16,10 @@ This web project is a travel blog. The website is reachable at this URL : https:
   - Ajouter l'article de l'Argentine dès que Task 1 est faite : On-going
   - Photo update : Mettre à jour toutes les photos du Queyras et de l'Argentine
     - Argentine : To check
+      -Retrier les photos du GR20
 - Global :
   - Code refactoring using chat GPT
   - SEO optimization :
     - Implementing dynamic meta tags -> To test
-    - Put titles in the articles
     - Check the search console optimizations and define a backlog
     - Implement the alts in the images

@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import { useState, useCallback, useEffect } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import TopImage from "../Common/TopImage/TopImage";
 import ArticleContent from "./ArticleContent/ArticleContent";
 import "./Article.css";

@@ -1,7 +1,7 @@
 import "./HomePage.css";
 import TopImage from "../Common/TopImage/TopImage";
 import HomeContent from "./HomeContent/HomeContent";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 function HomePage() {
   return (

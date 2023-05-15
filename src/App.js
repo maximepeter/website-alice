@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import HomePage from "./components/HomePage/HomePage";
 import Article from "./components/Article/Article";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import {
   clearAllDropdownsState,
   clearAllMenusState,
@@ -21,14 +22,16 @@ function App() {
   };
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/article:articleId" element={<Article />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </BrowserRouter>
+      <HelmetProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/article:articleId" element={<Article />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </BrowserRouter>
+      </HelmetProvider>
     </div>
   );
 }

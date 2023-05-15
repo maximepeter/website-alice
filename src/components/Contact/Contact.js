@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Button from "../Common/Button/Button";
 import { sendMail } from "../../utils/utils";
 import "./Contact.css";
