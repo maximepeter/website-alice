@@ -4,7 +4,6 @@
   -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
   transition: background-color 500ms linear;
-  border-radius: 10px;
 }
 
 .table-of-content-item:hover {

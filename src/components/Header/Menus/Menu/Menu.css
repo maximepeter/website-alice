@@ -11,12 +11,5 @@
 }
 .menu-selected {
   background-color: rgba(167, 5, 5);
-  border-radius: 5px 5px 0px 0px;
   transition: 0.2s;
-}
-
-@media screen and (max-width: 600px) {
-  .menu-selected {
-    border-radius: unset;
-  }
 }

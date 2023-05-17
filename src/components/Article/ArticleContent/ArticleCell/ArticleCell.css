@@ -1,7 +1,7 @@
 .article-cell {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
@@ -12,15 +12,13 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+  gap: 1vh;
 }
 
 .article-cell-picture img {
   max-width: 25vw;
   height: 100%;
-  border-radius: 5px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  margin-top: 1vh;
-  margin-bottom: 1vh;
 }
 
 .overlayBlock {
@@ -32,7 +30,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
   transition: 0.5s;
   opacity: 0;
 }
@@ -99,9 +96,5 @@
   .article-cell-picture img {
     max-width: 100%;
     max-height: 20%;
-    border-radius: unset;
-  }
-  .overlayBlock {
-    border-radius: unset;
   }
 }

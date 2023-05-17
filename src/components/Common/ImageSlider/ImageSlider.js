@@ -32,6 +32,7 @@ function ImageSlider(props) {
       .addEventListener("click", (event) => {
         if (isClickedOutsideSlider(event)) {
           hideImageSlider();
+          setCurrent(0);
         }
       });
   }, []);
@@ -44,7 +45,6 @@ function ImageSlider(props) {
     <div className="slider" id="imageSlider">
       <div className="slides">
         <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-        <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
         {slides.map((slide, index) => {
           return (
             <div
@@ -59,11 +59,16 @@ function ImageSlider(props) {
                   loading="lazy"
                 />
               )}
+              <div className="sliderOverlayBlock" key={slide.imageAlt}>
+                {slide.imageAlt}
+              </div>
+              ;
             </div>
           );
         })}
+        <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
       </div>
-      <div className="backButton">Retour</div>
+      {/* <div className="backButton">Retour</div> */}
     </div>
   );
 }

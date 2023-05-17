@@ -114,7 +114,6 @@ function ArticleContent(props) {
           <ul id="table-of-content">{tableOfContent}</ul>
         </div>
       </div>
-      {/* <ArticleSummary url={`${articleRootUrl}/articleSummary.html`} /> */}
       {summary}
       <div id="cell-container">{articles}</div>
     </div>
