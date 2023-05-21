@@ -51,6 +51,7 @@ function ImageSlider(props) {
               className={index === current ? "slide active" : "slide"}
               key={index}
             >
+              {/* <div className="imageWrapper"> */}
               {index === current && (
                 <img
                   src={slide.imageUrl}
@@ -62,7 +63,7 @@ function ImageSlider(props) {
               <div className="sliderOverlayBlock" key={slide.imageAlt}>
                 {slide.imageAlt}
               </div>
-              ;
+              {/* </div> */};
             </div>
           );
         })}

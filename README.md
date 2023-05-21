@@ -13,16 +13,17 @@ This web project is a travel blog. The website is reachable at this URL : https:
   - Change the articles' subtitles style
   - Add a icon on the mobile version in order like on instagram
 - Content :
+
   - Ajouter l'article de l'Argentine dès que Task 1 est faite : On-going
   - Photo update : Mettre à jour toutes les photos du Queyras et de l'Argentine
     - Argentine : To check
       -Retrier les photos du GR20
   - Image loading : Load the hidden images.
-  - Slider : The overlay text overflows.
+
 - Global :
-  - Code refactoring using chat GPT
+  - Code refactoring.
   - SEO optimization :
     - Implement the SEO component for code refactoring.
     - Implementing dynamic meta tags -> To test -> It does not work and we might need here a SSR.
-    - Check the search console optimizations and define a backlog
+    - Check the search console optimizations and define a backlog -> It only work for google and in the indexation we get the correct description as google bots are rendering js code.
     - Implement the alts in the images
